@@ -9,7 +9,7 @@
 `mvn spring-boot:run`
 
 ## API input and output which I have tested.
-
+-----------------------------------------------------------------------------------------------------
 POST:  http://localhost:8080/users
 #### Input:
 {
@@ -29,6 +29,7 @@ POST:  http://localhost:8080/users
     "age": 38
 }
 
+-----------------------------------------------------------------------------------------------------
 POST: http://localhost:8080/device
 #### Input:
 {
@@ -46,6 +47,7 @@ POST: http://localhost:8080/device
     "deviceType": "MOBILE"
 }
 
+-----------------------------------------------------------------------------------------------------
 POST: http://localhost:8080/health_metrics
 #### Input: (Post this input multiple times for more health record against the same mobile number)
 {
@@ -71,6 +73,7 @@ POST: http://localhost:8080/health_metrics
     "updatedDate": "2020-09-13T03:46:18.209+00:00"
 }
 
+----------------------------------------------------------------------------------------------
 GET: http://localhost:8080/health_metrics/aggregation?mobileNumber=1111111000
 #### Output: (Aggregates for the health records for the mobile number the user owns it)
 {
