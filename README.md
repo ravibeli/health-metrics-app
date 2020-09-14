@@ -1,24 +1,24 @@
 # health-metrics-app
  MapStruct library and JPA ManyToOne example
 ### project build using gradle 
->> gradle clean build
+`gradle clean build`
 ### project build using maven
->> mvn clean install
+`mvn clean install`
 
 ### project launch
->> mvn spring-boot:run
+`mvn spring-boot:run`
 
-API input and output which I have tested.
+## API input and output which I have tested.
 
 POST:  http://localhost:8080/users
-### Input:
+#### Input:
 {
     "emailId":"ravi@gmail.com",
     "firstName":"ravi",
     "lastName":"beli",
     "age": 38
 }   
-### Output:
+#### Output:
 {
     "createdDate": "2020-09-13T03:45:52.543+00:00",
     "updatedDate": "2020-09-13T03:45:52.543+00:00",
@@ -30,12 +30,12 @@ POST:  http://localhost:8080/users
 }
 
 POST: http://localhost:8080/device
-### Input:
+#### Input:
 {
     "emailId": "ravi@gmail.com",
     "mobileNumber": "1111111000"
 }
-### Output:
+#### Output:
 {
     "createdDate": "2020-09-13T03:45:54.791+00:00",
     "updatedDate": "2020-09-13T03:45:54.791+00:00",
@@ -47,7 +47,7 @@ POST: http://localhost:8080/device
 }
 
 POST: http://localhost:8080/health_metrics
-### Input: (Post this input multiple times for more health record against the same mobile number)
+#### Input: (Post this input multiple times for more health record against the same mobile number)
 {
 	  "mobileNumber": 1111111000,
 	  "height": 111,
@@ -56,7 +56,7 @@ POST: http://localhost:8080/health_metrics
 	  "calories": 130,
 	  "caloriesBurn": 10
 }
-### Output:
+#### Output:
 {
     "userHealthParamId": 4,
     "userId": 1,
@@ -72,7 +72,7 @@ POST: http://localhost:8080/health_metrics
 }
 
 GET: http://localhost:8080/health_metrics/aggregation?mobileNumber=1111111000
-### Output: (Aggregates for the health records for the mobile number the user owns it)
+#### Output: (Aggregates for the health records for the mobile number the user owns it)
 {
     "mobileNumber": 1111111000,
     "averageHeight": 111.0,
