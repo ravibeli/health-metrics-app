@@ -45,6 +45,7 @@ public class MobileDeviceService {
 
         MobileDevice mobileDevice = Mappers.getMapper(MobileDeviceMapper.class).toMobileDevice(deviceDto);
         log.info("After MobileDevice setting user = {}", mobileDevice);
+        mobileDevice.setUserId(user);
         mobileDevice = mobileDeviceRepository.save(mobileDevice);
         log.info("After save MobileDevice = {}", mobileDevice);
         return Mappers.getMapper(MobileDeviceMapper.class).toMobileDeviceDTO(mobileDevice);

@@ -19,7 +19,6 @@ import lombok.ToString;
 @Getter
 @ToString(callSuper = true)
 @MappedSuperclass
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class AbstractUserHealthParams extends AbstractAuditModel {
 
     @NotNull

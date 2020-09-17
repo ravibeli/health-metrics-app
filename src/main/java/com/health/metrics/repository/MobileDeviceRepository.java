@@ -13,4 +13,5 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 @RepositoryRestResource(collectionResourceRel = "device", path = "device")
 public interface MobileDeviceRepository extends PagingAndSortingRepository<MobileDevice, Long> {
     MobileDevice findByMobileNumber(long mobileNumber);
+    MobileDevice findByEmailId(String emailId);
 }

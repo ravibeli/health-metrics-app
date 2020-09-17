@@ -18,14 +18,16 @@ public class AggregationUserHealthParamsDTO {
     private long mobileNumber;
     private double averageHeight;
     private double averageWeight;
+    private double averageHearthRatePerMinutes;
     private double averageCalories;
     private double averageCaloriesBurn;
 
     @Builder
-    public AggregationUserHealthParamsDTO(long mobileNumber, double averageHeight, double averageWeight, double averageCalories, double averageCaloriesBurn){
+    public AggregationUserHealthParamsDTO(long mobileNumber, double averageHeight, double averageWeight, double averageHearthRatePerMinutes, double averageCalories, double averageCaloriesBurn){
         this.mobileNumber = mobileNumber;
         this.averageHeight = averageHeight;
         this.averageWeight = averageWeight;
+        this.averageHearthRatePerMinutes = averageHearthRatePerMinutes;
         this.averageCalories = averageCalories;
         this.averageCaloriesBurn = averageCaloriesBurn;
     }

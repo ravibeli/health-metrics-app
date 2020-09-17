@@ -1,10 +1,10 @@
 package com.health.metrics.api;
 
-import com.health.metrics.mapper.UserHealthParamsMapper;
-import com.health.metrics.service.UserHealthParamsService;
 import com.health.metrics.dto.AggregationUserHealthParamsDTO;
 import com.health.metrics.dto.UserHealthParamsDTO;
 import com.health.metrics.entity.UserHealthParams;
+import com.health.metrics.mapper.UserHealthParamsMapper;
+import com.health.metrics.service.UserHealthParamsService;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.mapstruct.factory.Mappers;
@@ -33,27 +33,22 @@ public class UserHealthParamsController {
     @Autowired
     UserHealthParamsService userHealthParamsService;
 
-    @GetMapping
-    @RequestMapping(params = {"mobileNumber"})
-    public ResponseEntity<List<UserHealthParamsDTO>> getUserHealthMetricsByMobileNumber(@RequestParam("mobileNumber") long mobileNumber) {
-        log.info("EmailId from RequestParam = {}", mobileNumber);
-        List<UserHealthParamsDTO> userHealthParamsDTOList = userHealthParamsService.getUserHealthParamsByMobileNumber(mobileNumber);
-        if (userHealthParamsDTOList != null) {
-            return new ResponseEntity<>(userHealthParamsDTOList, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
-
+    /**
+     * Demonstration of RequestParam using mobileNumber
+     * Example: http://localhost:8080/health_metrics/aggregation?mobileNumber=1000000000
+     *
+     * @param mobileNumber
+     * @return
+     */
     @GetMapping(value = "/aggregation")
     @RequestMapping(value = "/{mobileNumber}",params = {"mobileNumber"})
-    public ResponseEntity<AggregationUserHealthParamsDTO> getHeathMetricsAggregationByMobileNumber(
+    public ResponseEntity getHeathMetricsAggregationByMobileNumber(
         @RequestParam("mobileNumber") long mobileNumber) {
 
         log.info("MobileNumber from RequestParam = {}", mobileNumber);
         AggregationUserHealthParamsDTO aggregationUserHealthParamsDTO = null;
         try{
-            aggregationUserHealthParamsDTO = userHealthParamsService.aggregationOfUserHealthMetrics(mobileNumber);
+            aggregationUserHealthParamsDTO = userHealthParamsService.aggregationOfUserHealthMetrics(mobileNumber, null);
         } catch (Exception e) {
             log.error(e.getMessage());
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

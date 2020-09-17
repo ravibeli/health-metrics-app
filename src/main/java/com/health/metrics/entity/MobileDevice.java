@@ -33,6 +33,6 @@ public class MobileDevice extends AbstractDevice {
     private String emailId;
 
     @NotNull
-    @Column(name = "device_type", unique = true)
+    @Column(name = "device_type")
     private DeviceType deviceType = DeviceType.MOBILE;
 }
