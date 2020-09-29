@@ -5,9 +5,13 @@ public enum ReportEnum {
     WEEKLY(7),
     DUMMY(0);
 
-    private int i;
+    private int value;
 
-    ReportEnum(int i) {
-        this.i = i;
+    public int getValue() {
+        return this.value;
+    }
+
+    ReportEnum(int value) {
+        this.value = value;
     }
 }

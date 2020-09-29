@@ -120,7 +120,7 @@ public class UserHealthParamsService {
                 userHealthParams = userHealthParamsRepository.findByMobileNumberAndCreatedDate(mobileDevice.getMobileNumber(), new Date());
             case WEEKLY:
                 userHealthParams = userHealthParamsRepository.findByMobileNumberAndCreatedDateBetween(mobileDevice.getMobileNumber(), new Date(),
-                    DateUtils.addDays(new Date(),7));
+                    DateUtils.addDays(new Date(),ReportEnum.WEEKLY.getValue()));
             default:
                 userHealthParams = userHealthParamsRepository.findByMobileNumber(mobileDevice.getMobileNumber());
         }
