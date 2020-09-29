@@ -9,7 +9,7 @@ import com.health.metrics.enums.ReportEnum;
 import com.health.metrics.exception.DeviceNotRegisteredException;
 import com.health.metrics.exception.UserNotRegisteredException;
 import com.health.metrics.mapper.UserHealthParamsMapper;
-import com.health.metrics.repository.MobileDeviceRepository;
+import com.health.metrics.repository.MobileRegistrationRepository;
 import com.health.metrics.repository.UserHealthParamsRepository;
 import com.health.metrics.repository.UserRepository;
 import java.util.ArrayList;
@@ -40,7 +40,7 @@ public class UserHealthParamsService {
     UserRepository userRepository;
 
     @Autowired
-    MobileDeviceRepository mobileDeviceRepository;
+    MobileRegistrationRepository mobileDeviceRepository;
 
     public UserHealthParams createUserHealthParams(UserHealthParamsDTO userHealthParamsDTO){
         MobileDevice mobileDevice = mobileDeviceRepository.findByMobileNumber(userHealthParamsDTO.getMobileNumber());

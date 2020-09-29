@@ -1,7 +1,7 @@
 package com.health.metrics.service;
 
 import com.health.metrics.mapper.MobileDeviceMapper;
-import com.health.metrics.repository.MobileDeviceRepository;
+import com.health.metrics.repository.MobileRegistrationRepository;
 import com.health.metrics.repository.UserRepository;
 import com.health.metrics.dto.MobileDeviceDTO;
 import com.health.metrics.entity.MobileDevice;
@@ -20,10 +20,10 @@ import org.springframework.stereotype.Service;
 
 @Slf4j
 @Service
-public class MobileDeviceService {
+public class MobileRegistrationService {
 
     @Autowired
-    MobileDeviceRepository mobileDeviceRepository;
+    MobileRegistrationRepository mobileDeviceRepository;
 
     @Autowired
     UserRepository userRepository;

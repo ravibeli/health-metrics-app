@@ -3,7 +3,7 @@ package com.health.metrics.api;
 import com.health.metrics.dto.MobileDeviceDTO;
 import com.health.metrics.entity.MobileDevice;
 import com.health.metrics.mapper.MobileDeviceMapper;
-import com.health.metrics.service.MobileDeviceService;
+import com.health.metrics.service.MobileRegistrationService;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.mapstruct.factory.Mappers;
@@ -26,15 +26,15 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RestController
 @RequestMapping(value = "/mobile")
-public class MobileDeviceController {
+public class MobileRegistrationController {
 
 
     @Autowired
-    MobileDeviceService mobileDeviceService;
+    MobileRegistrationService mobileRegistrationService;
 
     @RequestMapping(value="/{mobileNumber}", params = "mobileNumber")
     public ResponseEntity<MobileDeviceDTO> getDevice(@RequestParam("mobileNumber") Integer mobileNumber) {
-        MobileDevice mobileDevice = mobileDeviceService.getDeviceByMobileNumber(mobileNumber);
+        MobileDevice mobileDevice = mobileRegistrationService.getDeviceByMobileNumber(mobileNumber);
         MobileDeviceDTO mobileDeviceDTO =  Mappers.getMapper(MobileDeviceMapper.class).toMobileDeviceDTO(mobileDevice);
         if (mobileDeviceDTO != null) {
             return new ResponseEntity<>(mobileDeviceDTO, HttpStatus.CREATED);
@@ -46,7 +46,7 @@ public class MobileDeviceController {
 
     @RequestMapping
     public ResponseEntity<List<MobileDeviceDTO>> getDevices() {
-        List<MobileDeviceDTO> mobileDeviceDTOList = mobileDeviceService.getDevices();
+        List<MobileDeviceDTO> mobileDeviceDTOList = mobileRegistrationService.getDevices();
         return new ResponseEntity<>(mobileDeviceDTOList, HttpStatus.OK);
     }
 
@@ -54,7 +54,7 @@ public class MobileDeviceController {
     public ResponseEntity<MobileDeviceDTO> createMobileDevice(@RequestBody
                                                                   MobileDeviceDTO mobileDeviceDTO) {
         log.info("In MobileDeviceController.createMobileDevice({})", mobileDeviceDTO);
-        MobileDeviceDTO mobileDevice = mobileDeviceService.createMobileDevice(mobileDeviceDTO);
+        MobileDeviceDTO mobileDevice = mobileRegistrationService.createMobileDevice(mobileDeviceDTO);
         if (mobileDevice != null) {
             return new ResponseEntity<>(mobileDevice, HttpStatus.CREATED);
         } else {

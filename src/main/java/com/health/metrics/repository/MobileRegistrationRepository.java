@@ -10,8 +10,8 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
  * @created on 11 Sep, 2020 7:20 PM
  **/
 
-@RepositoryRestResource(collectionResourceRel = "device", path = "device")
-public interface MobileDeviceRepository extends PagingAndSortingRepository<MobileDevice, Long> {
+@RepositoryRestResource(collectionResourceRel = "mobile", path = "mobile")
+public interface MobileRegistrationRepository extends PagingAndSortingRepository<MobileDevice, Long> {
     MobileDevice findByMobileNumber(long mobileNumber);
     MobileDevice findByEmailId(String emailId);
 }
