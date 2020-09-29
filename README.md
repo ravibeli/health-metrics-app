@@ -11,7 +11,7 @@ It has two main consumers.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Please build an application that exposes following features to other applications
 1. API to register user.
-2. API to register a mobile number to a user.
+2. API to register a device to a user.
 3. API to push metric. Sample metrics should be (height, weight, heart-rate, calorie, calorie-burn). The type of metrics supported are predefined and new type of metrics can be added.
 4. API to get all data points of a metric for a user across different devices in a given duration.
 5. API to get an appropriate aggregate (max, min, average etc) in a time range for a metric across different devices for a given user.
@@ -55,7 +55,7 @@ POST:  http://localhost:8080/users
 }
 
 -----------------------------------------------------------------------------------------------------
-POST: http://localhost:8080/mobile
+POST: http://localhost:8080/device
 #### Input:
 {
     "emailId": "ravi@gmail.com",
@@ -91,7 +91,7 @@ POST: http://localhost:8080/health_metrics
     "deviceId": 2
     "height": 130,
     "weight": 70,
-    "hearthRatePerMinutes": 100,
+    "hearthRatePerMinutes": 120,
     "calories": 130,
     "caloriesBurn": 10,
     "createdDate": "2020-09-13T03:46:18.209+00:00",
@@ -105,7 +105,6 @@ GET: http://localhost:8080/health_metrics/aggregation?mobileNumber=1111111000
     "mobileNumber": 1111111000,
     "averageHeight": 111.0,
     "averageWeight": 67.0,
-    "averageHearthRatePerMinutes": 100,
     "averageCalories": 138.0,
     "averageCaloriesBurn": 34.0
 }
