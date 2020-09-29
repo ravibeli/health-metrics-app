@@ -3,6 +3,7 @@ package com.health.metrics.api;
 import com.health.metrics.dto.AggregationUserHealthParamsDTO;
 import com.health.metrics.dto.UserHealthParamsDTO;
 import com.health.metrics.entity.UserHealthParams;
+import com.health.metrics.enums.ReportEnum;
 import com.health.metrics.mapper.UserHealthParamsMapper;
 import com.health.metrics.service.UserHealthParamsService;
 import java.util.List;
@@ -48,7 +49,7 @@ public class UserHealthParamsController {
         log.info("MobileNumber from RequestParam = {}", mobileNumber);
         AggregationUserHealthParamsDTO aggregationUserHealthParamsDTO = null;
         try{
-            aggregationUserHealthParamsDTO = userHealthParamsService.aggregationOfUserHealthMetrics(mobileNumber, null);
+            aggregationUserHealthParamsDTO = userHealthParamsService.aggregationOfUserHealthMetrics(mobileNumber, ReportEnum.DUMMY);
         } catch (Exception e) {
             log.error(e.getMessage());
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

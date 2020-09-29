@@ -55,11 +55,11 @@ POST:  http://localhost:8080/users
 }
 
 -----------------------------------------------------------------------------------------------------
-POST: http://localhost:8080/device
+POST: http://localhost:8080/mobile
 #### Input:
 {
     "emailId": "ravi@gmail.com",
-    "mobileNumber": "1111111000"
+    "mobileNumber": "1000000000"
 }
 #### Output:
 {
@@ -68,7 +68,7 @@ POST: http://localhost:8080/device
     "deviceId": 1,
     "userId": 1,
     "emailId": "ravi@gmail.com",
-    "mobileNumber": 1111111000,
+    "mobileNumber": 1000000000,
     "deviceType": "MOBILE"
 }
 
@@ -76,7 +76,7 @@ POST: http://localhost:8080/device
 POST: http://localhost:8080/health_metrics
 #### Input: (Post this input multiple times for more health record against the same mobile number)
 {
-	  "mobileNumber": 1111111000,
+	  "mobileNumber": 1000000000,
 	  "height": 111,
 	  "weight": 67,
 	  "hearthRatePerMinutes": 90,
@@ -87,7 +87,7 @@ POST: http://localhost:8080/health_metrics
 {
     "userHealthParamId": 4,
     "userId": 1,
-    "mobileNumber": 1111111000,
+    "mobileNumber": 1000000000,
     "deviceId": 2
     "height": 130,
     "weight": 70,
@@ -99,13 +99,34 @@ POST: http://localhost:8080/health_metrics
 }
 
 ----------------------------------------------------------------------------------------------
-GET: http://localhost:8080/health_metrics/aggregation?mobileNumber=1111111000
+GET: http://localhost:8080/health_metrics/aggregation?mobileNumber=1000000000
 #### Output: (Aggregates for the health records for the mobile number the user owns it)
 {
-    "mobileNumber": 1111111000,
+    "mobileNumber": 1000000000,
     "averageHeight": 111.0,
     "averageWeight": 67.0,
     "averageCalories": 138.0,
     "averageCaloriesBurn": 34.0
 }
-
+----------------------------------------------------------------------------------------------
+http://localhost:8080/health_report/mobile/1000000000/daily
+#### Output: (Aggregates for the health records daily report by mobileNumber)
+{
+    "mobileNumber": 1000000000,
+    "averageHeight": 100.0,
+    "averageWeight": 100.0,
+    "averageHearthRatePerMinutes": 60.0,
+    "averageCalories": 60.0,
+    "averageCaloriesBurn": 30.0
+}
+----------------------------------------------------------------------------------------------
+http://localhost:8080/health_report/mobile/1000000000/weekly
+#### Output: (Aggregates for the health records weekly report by mobileNumber)
+{
+    "mobileNumber": 1000000000,
+    "averageHeight": 100.0,
+    "averageWeight": 100.0,
+    "averageHearthRatePerMinutes": 60.0,
+    "averageCalories": 60.0,
+    "averageCaloriesBurn": 30.0
+}
