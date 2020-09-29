@@ -109,7 +109,7 @@ GET: http://localhost:8080/health_metrics/aggregation?mobileNumber=1000000000
     "averageCaloriesBurn": 34.0
 }
 ----------------------------------------------------------------------------------------------
-http://localhost:8080/health_report/mobile/1000000000/daily
+GET http://localhost:8080/health_report/mobile/1000000000/daily
 #### Output: (Aggregates for the health records daily report by mobileNumber)
 {
     "mobileNumber": 1000000000,
@@ -120,7 +120,7 @@ http://localhost:8080/health_report/mobile/1000000000/daily
     "averageCaloriesBurn": 30.0
 }
 ----------------------------------------------------------------------------------------------
-http://localhost:8080/health_report/mobile/1000000000/weekly
+GET http://localhost:8080/health_report/mobile/1000000000/weekly
 #### Output: (Aggregates for the health records weekly report by mobileNumber)
 {
     "mobileNumber": 1000000000,
