@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 /**
@@ -16,6 +17,8 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 @RepositoryRestResource(collectionResourceRel = "health_report", path = "health_report")
 public interface UserHealthParamsRepository extends PagingAndSortingRepository<UserHealthParams, Long> {
     List<UserHealthParams> findByMobileNumber(Long mobileNumber);
+    @Query("select u from UserHealthParams u where u.userId.userId = :userId")
+    List<UserHealthParams> findByUserId(@Param("userId") Long userId);
     List<UserHealthParams> findByMobileNumberAndCreatedDate(long mobileNumber, Date createdDate);
     List<UserHealthParams> findByMobileNumberAndCreatedDateBetween(long mobileNumber, Date startDate, Date endDate);
 }

@@ -12,6 +12,7 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,11 +24,9 @@ import lombok.ToString;
  * @created on 11 Sep, 2020 6:40 PM
  **/
 
-@Setter
-@Getter
+@Data
 @Entity
-@ToString(callSuper = true)
-@EqualsAndHashCode(callSuper = true, of = {"userHealthParamId"})
+@EqualsAndHashCode(callSuper = true)
 @Table(name = "user_health_params")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class UserHealthParams extends AbstractUserHealthParams {

@@ -2,6 +2,8 @@ package com.health.metrics.dto;
 
 import com.health.metrics.dto.base.AbstractDeviceDTO;
 import com.health.metrics.enums.DeviceType;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -12,8 +14,8 @@ import lombok.ToString;
  * @created on 11 Sep, 2020 6:01 PM
  **/
 
-@Setter
-@Getter
+@Data
+@EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
 public class MobileDeviceDTO extends AbstractDeviceDTO {
     private String emailId;
