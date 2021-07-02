@@ -1,6 +1,6 @@
 package com.health.metrics.entity;
 
-import com.health.metrics.entity.base.AbstractDevice;
+import com.health.metrics.entity.base.Device;
 import com.health.metrics.enums.DeviceType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -23,7 +23,7 @@ import lombok.ToString;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "user_device")
-public class MobileDevice extends AbstractDevice {
+public class MobileDevice extends Device {
     @NotNull
     @Column(name = "mobile_number", unique = true)
     private long mobileNumber;

@@ -1,7 +1,7 @@
 package com.health.metrics.mapper.config;
 
-import com.health.metrics.entity.base.AbstractDevice;
-import com.health.metrics.dto.base.AbstractDeviceDTO;
+import com.health.metrics.dto.base.DeviceDTO;
+import com.health.metrics.entity.base.Device;
 import org.mapstruct.InheritConfiguration;
 import org.mapstruct.MapperConfig;
 import org.mapstruct.Mapping;
@@ -17,5 +17,5 @@ import org.mapstruct.MappingTarget;
 public interface DeviceMapperConfig extends AuditModelMapperConfig {
     @InheritConfiguration(name = "mapAuditModel")
     @Mapping(source = "userId.userId", target = "userId")
-    void mapDevice(AbstractDevice device, @MappingTarget AbstractDeviceDTO deviceDTO);
+    void mapDevice(Device device, @MappingTarget DeviceDTO deviceDTO);
 }

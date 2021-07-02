@@ -1,6 +1,6 @@
 package com.health.metrics.dto;
 
-import com.health.metrics.entity.base.AbstractUserHealthParams;
+import com.health.metrics.entity.base.UserHealthParams;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -14,7 +14,7 @@ import lombok.ToString;
 @Setter
 @Getter
 @ToString(callSuper = true)
-public class UserHealthParamsDTO extends AbstractUserHealthParams {
+public class UserHealthParamsDTO extends UserHealthParams {
     private long userHealthParamId;
     private long userId;
     private long mobileNumber;

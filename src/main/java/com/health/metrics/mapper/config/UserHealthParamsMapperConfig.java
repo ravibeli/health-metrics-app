@@ -1,7 +1,7 @@
 package com.health.metrics.mapper.config;
 
-import com.health.metrics.dto.base.AbstractUserHealthParamsDTO;
-import com.health.metrics.entity.base.AbstractUserHealthParams;
+import com.health.metrics.dto.base.UserHealthParamsDTO;
+import com.health.metrics.entity.base.UserHealthParams;
 import org.mapstruct.InheritConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
@@ -15,10 +15,10 @@ import org.mapstruct.MappingTarget;
 @Mapper
 public interface UserHealthParamsMapperConfig extends AuditModelMapperConfig {
     @InheritConfiguration(name = "mapAuditModel")
-    void mapAbstractUserHealthParamsDTO(AbstractUserHealthParams abstractUserHealthParams, @MappingTarget
-        AbstractUserHealthParamsDTO abstractUserHealthParamsDTO);
+    void mapAbstractUserHealthParamsDTO(UserHealthParams abstractUserHealthParams, @MappingTarget
+        UserHealthParamsDTO abstractUserHealthParamsDTO);
 
     @InheritConfiguration(name = "mapAuditModel")
-    void mapAbstractUserHealthParams(AbstractUserHealthParamsDTO abstractUserHealthParamsDTO, @MappingTarget
-        AbstractUserHealthParams abstractUserHealthParams);
+    void mapAbstractUserHealthParams(UserHealthParamsDTO abstractUserHealthParamsDTO, @MappingTarget
+        UserHealthParams abstractUserHealthParams);
 }

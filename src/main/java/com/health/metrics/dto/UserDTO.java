@@ -1,6 +1,6 @@
 package com.health.metrics.dto;
 
-import com.health.metrics.dto.base.AbstractAuditModelDTO;
+import com.health.metrics.dto.base.AuditModelDTO;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
@@ -15,7 +15,7 @@ import lombok.ToString;
 @Setter
 @Getter
 @ToString(callSuper = true)
-public class UserDTO extends AbstractAuditModelDTO {
+public class UserDTO extends AuditModelDTO {
     private long userId;
     @NonNull
     private String emailId;

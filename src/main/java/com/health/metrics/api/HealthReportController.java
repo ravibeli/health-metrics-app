@@ -30,9 +30,8 @@ public class HealthReportController {
     /**
      * Demonstration of PathVariable using userId
      * Example: http://localhost:8080/health_report/user/1/daily
-     * @param userId
-     * @return
-     * @throws Exception
+     * @param userId the userId
+     * @return the aggregated user health parameters
      */
     @GetMapping(value = "/user/{userId}/daily")
     public ResponseEntity<AggregationUserHealthParamsDTO> getHealthMetricsDailyReport(@PathVariable(value = "userId", required = true) long userId)

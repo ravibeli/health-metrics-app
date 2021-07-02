@@ -13,7 +13,7 @@ import lombok.ToString;
 @Setter
 @Getter
 @ToString(callSuper = true)
-public abstract class AbstractDeviceDTO extends AbstractAuditModelDTO {
+public abstract class DeviceDTO extends AuditModelDTO {
     private long deviceId;
     private long userId;
 }

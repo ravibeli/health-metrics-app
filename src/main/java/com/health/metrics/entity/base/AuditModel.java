@@ -24,11 +24,11 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
     value = {"createdDate", "updatedDate"},
     allowGetters = true
 )
-public abstract class AbstractAuditModel implements Serializable {
+public abstract class AuditModel implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created_date", nullable = false, updatable = false)
     @CreatedDate
-    private Date createdDate = new Date();
+    private Date createdDate;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "updated_date", nullable = false)

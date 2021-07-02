@@ -13,7 +13,7 @@ import lombok.ToString;
 @Setter
 @Getter
 @ToString(callSuper = true)
-public abstract class AbstractUserHealthParamsDTO extends AbstractAuditModelDTO {
+public abstract class UserHealthParamsDTO extends AuditModelDTO {
     private Integer height;
     private Integer weight;
     private Integer hearthRatePerMinutes;

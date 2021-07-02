@@ -23,7 +23,7 @@ import lombok.ToString;
 @Getter
 @ToString(callSuper = true)
 @MappedSuperclass
-public abstract class AbstractDevice extends AbstractAuditModel {
+public abstract class Device extends AuditModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

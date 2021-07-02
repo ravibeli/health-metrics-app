@@ -7,6 +7,7 @@ import java.util.List;
 import org.mapstruct.InheritConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.factory.Mappers;
 
 /**
  * @author ravibeli
@@ -15,7 +16,9 @@ import org.mapstruct.Mapping;
  **/
 
 @Mapper(config = UserHealthParamsMapperConfig.class)
-public abstract class UserHealthParamsMapper {
+public interface UserHealthParamsMapper {
+
+    UserHealthParamsMapper INSTANCE = Mappers.getMapper(UserHealthParamsMapper.class);
 
     @InheritConfiguration(name = "mapAbstractUserHealthParams")
     @Mapping(source = "userId", target = "userId.userId")

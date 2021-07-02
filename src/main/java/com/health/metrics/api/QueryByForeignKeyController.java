@@ -1,6 +1,5 @@
 package com.health.metrics.api;
 
-import com.health.metrics.dto.AggregationUserHealthParamsDTO;
 import com.health.metrics.dto.UserHealthParamsDTO;
 import com.health.metrics.entity.UserHealthParams;
 import com.health.metrics.mapper.UserHealthParamsMapper;
@@ -25,18 +24,19 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RestController
 @RequestMapping(value = "/userhealth")
-public class QueryByForienKeyController {
+public class QueryByForeignKeyController {
 
     @Autowired
     UserHealthParamsRepository userHealthParamsRepository;
 
     @GetMapping(value = "/user/{userId}/daily")
-    public ResponseEntity<List<UserHealthParamsDTO>> getHealthMetricsDailyReport(@PathVariable(value = "userId", required = true) Long userId)
+    public ResponseEntity<List<UserHealthParamsDTO>> getHealthMetricsDailyReport(
+        @PathVariable(value = "userId", required = true) Long userId)
         throws Exception {
         List<UserHealthParams> userHealthParams = userHealthParamsRepository.findByUserId(userId);
         log.info("userHealthParams = {}", userHealthParams);
-        List<UserHealthParamsDTO> userHealthParamsDTOS = Mappers.getMapper(UserHealthParamsMapper.class)
-                                                            .toUserHealthParamsDTOList(userHealthParams);
+        List<UserHealthParamsDTO> userHealthParamsDTOS =
+            UserHealthParamsMapper.INSTANCE.toUserHealthParamsDTOList(userHealthParams);
         return new ResponseEntity<>(userHealthParamsDTOS, HttpStatus.OK);
     }
 }

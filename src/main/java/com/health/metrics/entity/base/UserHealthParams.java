@@ -1,8 +1,6 @@
 package com.health.metrics.entity.base;
 
 import javax.persistence.Column;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.NotNull;
 import lombok.Getter;
@@ -19,7 +17,7 @@ import lombok.ToString;
 @Getter
 @ToString(callSuper = true)
 @MappedSuperclass
-public abstract class AbstractUserHealthParams extends AbstractAuditModel {
+public abstract class UserHealthParams extends AuditModel {
 
     @NotNull
     @Column(name = "height")

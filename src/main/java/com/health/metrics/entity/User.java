@@ -1,6 +1,6 @@
 package com.health.metrics.entity;
 
-import com.health.metrics.entity.base.AbstractAuditModel;
+import com.health.metrics.entity.base.AuditModel;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,7 +19,7 @@ import lombok.ToString;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "user")
-public class User extends AbstractAuditModel {
+public class User extends AuditModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

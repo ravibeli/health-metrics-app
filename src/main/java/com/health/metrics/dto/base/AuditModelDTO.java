@@ -11,7 +11,7 @@ import lombok.Setter;
  **/
 @Setter
 @Getter
-public abstract class AbstractAuditModelDTO {
+public abstract class AuditModelDTO {
     private Date createdDate;
     private Date updatedDate;
 }

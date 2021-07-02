@@ -1,7 +1,7 @@
 package com.health.metrics.mapper.config;
 
-import com.health.metrics.dto.base.AbstractAuditModelDTO;
-import com.health.metrics.entity.base.AbstractAuditModel;
+import com.health.metrics.dto.base.AuditModelDTO;
+import com.health.metrics.entity.base.AuditModel;
 import org.mapstruct.MapperConfig;
 import org.mapstruct.MappingTarget;
 
@@ -13,7 +13,7 @@ import org.mapstruct.MappingTarget;
 
 @MapperConfig
 public interface AuditModelMapperConfig {
-    void mapAuditModel(AbstractAuditModel auditModel, @MappingTarget AbstractAuditModelDTO auditModelDTO);
+    void mapAuditModel(AuditModel auditModel, @MappingTarget AuditModelDTO auditModelDTO);
 }
 
 

@@ -1,6 +1,5 @@
 package com.health.metrics.entity;
 
-import com.health.metrics.entity.base.AbstractUserHealthParams;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -14,9 +13,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
 
 /**
  * @author ravibeli
@@ -29,7 +25,7 @@ import lombok.ToString;
 @EqualsAndHashCode(callSuper = true)
 @Table(name = "user_health_params")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class UserHealthParams extends AbstractUserHealthParams {
+public class UserHealthParams extends com.health.metrics.entity.base.UserHealthParams {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "health_id")
